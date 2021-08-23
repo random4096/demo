@@ -4,6 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'mvn --version'
+                sh './mvnw package'
             }
         }
         stage('test') {
@@ -13,6 +14,7 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
+                sh './mvnw test'
             }
         }
     }
