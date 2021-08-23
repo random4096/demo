@@ -75,6 +75,7 @@ public class Book {
         String str = "id:" + this.id + "read: " + this.read + " owned: " 
         + this.owned + " savedDate: " + this.savedDate;
         //+ "\n" + this.data != null ? this.data.toString() : "No data.";
+        str += "some changes";
         return str;
     }
 }
