@@ -9,7 +9,7 @@ pipeline {
         stage('test') {
             steps {
                 sh './mvnw test'
-                publishCoverage adapters: [jacocoAdapter('target/site/jacoco/jacoco.xml')]
+                publishCoverage adapters: [jacoco('target/site/jacoco/jacoco.xml')]
             }
         }
     }
