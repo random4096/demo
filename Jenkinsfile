@@ -1,11 +1,9 @@
 pipeline {
-    agent { docker { image 'maven:3.8.1' } }
+    agent { docker { image 'openjdk' } }
     stages {
         stage('build') {
             steps {
-                sh './mvnw install'
-                sh './mvnw clean'
-                sh './mvnw package'
+                sh './mvnw clean install'
             }
         }
         stage('test') {
