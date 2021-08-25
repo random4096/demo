@@ -18,7 +18,9 @@ pipeline {
                         classPattern: 'target/classes',
                         sourcePattern: 'src/main/java',
                         exclusionPattern: 'src/test*',
-                        maximumInstructionCoverage: '95%'
+                        changeBuildStatus: true,
+                        maximumInstructionCoverage: '95',
+                        minimumInstructionCoverage: '94'
                     )
                 }
             }
