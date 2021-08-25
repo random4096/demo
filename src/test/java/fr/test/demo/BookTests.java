@@ -32,5 +32,6 @@ public class BookTests {
 
         assertThat(book.getRead()).isEqualTo(true);
         assertThat(book.getOwned()).isEqualTo(true);
+        assertThat(book.toString()).isEqualTo("id:nullread: true owned: true savedDate: nullsome changes");
     }
 }
