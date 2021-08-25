@@ -21,6 +21,7 @@ public class BookTests {
         assertThat(book.getSavedDate()).isEqualTo("savedDate");
         assertThat(book.getLendPersonName()).isEqualTo("lendPersonName");
         assertThat(book.getLendDate()).isEqualTo("lendDate");
+        assertThat(true).isEqualTo(false);
     }
 
     @Test 
