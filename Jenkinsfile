@@ -3,13 +3,18 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh './mvnw clean install'
+                sh './mvnw clean install -Dmaven.test.failure.ignore=true'
             }
         }
         stage('test') {
             steps {
                 sh './mvnw test'
-                publishCoverage adapters: [jacoco('target/site/jacoco/jacoco.xml')]
+                jacoco( 
+                    execPattern: 'target/*.exec',
+                    classPattern: 'target/classes',
+                    sourcePattern: 'src/main/java',
+                    exclusionPattern: 'src/test*'
+                )
             }
         }
     }
