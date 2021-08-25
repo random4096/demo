@@ -19,9 +19,4 @@ class DemoApplicationTests {
 		assertThat(bookController).isNotNull();
 	}
 
-	@Test
-	public void main() {
-		DemoApplication.main(new String[] {});
-	}
-
 }
