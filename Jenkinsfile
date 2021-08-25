@@ -19,29 +19,16 @@ pipeline {
                         sourcePattern: 'src/main/java',
                         exclusionPattern: 'src/test*',
                         changeBuildStatus: true,
-                        maximumInstructionCoverage: '95',
-                        minimumInstructionCoverage: '94'
+                        maximumInstructionCoverage: '90',
+                        minimumInstructionCoverage: '70'
                     )
                 }
             }
         }
-
-        /*
-        stage('build') {
+        stage('Deploy') {
             steps {
-                sh './mvnw clean install -Dmaven.test.failure.ignore=true'
+                sh 'echo WIP'
             }
         }
-        stage('test') {
-            steps {
-                sh './mvnw test'
-                jacoco( 
-                    execPattern: 'target/*.exec',
-                    classPattern: 'target/classes',
-                    sourcePattern: 'src/main/java',
-                    exclusionPattern: 'src/test*'
-                )
-            }
-        }*/
     }
 }
