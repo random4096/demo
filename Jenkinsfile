@@ -1,22 +1,18 @@
 pipeline {
     agent { docker { image 'openjdk:11' } }
     stages {
-        stage ('Initialize') {
+        stage('Build') {
             steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
+                sh './mvnw -DskipTests clean package'
             }
         }
-
-        stage ('Build') {
+        stage('Test') {
             steps {
-                sh './mvnw clean -Dmaven.test.failure.ignore=true install' 
+                sh './mvnw test'
             }
             post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml' 
+                always {
+                    junit 'target/surefire-reports/*.xml'
                 }
             }
         }
