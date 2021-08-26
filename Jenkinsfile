@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './mvnw test'
+                sh './mvnw test checkstyle:checkstyle spotbugs:spotbugs'
             }
             post {
                 always {
@@ -23,6 +23,8 @@ pipeline {
                         minimumInstructionCoverage: '70'
                     )
                     recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javaDoc()]
+                    recordIssues enabledForFailure: true, tool: checkStyle()
+                    recordIssues enabledForFailure: true, tool: spotBugs()
                 }
             }
         }
