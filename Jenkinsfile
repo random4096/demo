@@ -22,6 +22,7 @@ pipeline {
                         maximumInstructionCoverage: '90',
                         minimumInstructionCoverage: '70'
                     )
+                    recordIssues enabledForFailure: true, tools: [mavenConsole(), java(), javaDoc()]
                 }
             }
         }
